@@ -2,16 +2,43 @@ package onyekachi.me.techcabal;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class HomeActivity extends ActionBarActivity {
 
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private String[] dataSet = {"Lorem Ipsum Dolor Predictable",
+                                "Money Makes The World Go Round",
+                                "Odd Future In Town For Naija Rock Concert",
+                                "Onyekachi Named Time Magazine Person Of The Year",
+                                "Lolubee Charity House Holds Ultimate Homeless Party",
+                                "Crazy People Around The World Keep Blowing Themselves Up",
+                                "Lorem Ipsum Dolor Predictable",
+                                "Money Makes The World Go Round",
+                                "Odd Future In Town For Naija Rock Concert",
+                                "Onyekachi Named Time Magazine Person Of The Year",
+                                "Lolubee Charity House Holds Ultimate Homeless Party",
+                                "Crazy People Around The World Keep Blowing Themselves Up"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+
+        mRecyclerView.setHasFixedSize(true);
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new HomeAdapter(dataSet);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
 

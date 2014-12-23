@@ -12,9 +12,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView mTextView;
-        public ViewHolder(TextView v){
+        public ViewHolder(View v){
             super(v);
-            mTextView = v;
+            mTextView =  (TextView)v.findViewById(R.id.article_title);
         }
     }
 
@@ -24,9 +24,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
     @Override
     public HomeAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
-        TextView tv = (TextView)v.findViewById(android.R.id.text1);
-        ViewHolder vh = new ViewHolder(tv);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 

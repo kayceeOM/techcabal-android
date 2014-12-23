@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <TextView android:id="@+id/article_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:text="Lorem Ipsum Dolor Ismet Borom Titanium Sher Bolt Is Hamet Gumball June"
+        android:textColor="#333" />
+
+</RelativeLayout>

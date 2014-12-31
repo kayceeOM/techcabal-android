@@ -11,6 +11,8 @@ import android.view.MenuItem;
 
 public class HomeActivity extends ActionBarActivity {
 
+    //colors #8C919B #000000 #444444
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -43,7 +45,7 @@ public class HomeActivity extends ActionBarActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new HomeAdapter(dataSet);
+        mAdapter = new HomeAdapter(this, dataSet);
         mRecyclerView.setAdapter(mAdapter);
     }
 

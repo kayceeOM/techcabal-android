@@ -9,8 +9,9 @@
         android:maxLines="3"
         android:ellipsize="end"
         android:textAllCaps="true"
-        android:textSize="18sp"
+        android:textSize="16sp"
+        android:lineSpacingMultiplier="1.2"
         android:text="Lorem Ipsum Dolor Ismet Borom Titanium Sher Bolt Is Hamet Gumball June"
-        android:textColor="#333" />
+        android:textColor="#000" />
 
 </RelativeLayout>

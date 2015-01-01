@@ -14,12 +14,22 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView mTextView;
+        public TextView mTitleTextView;
+        public TextView mDateTextView;
+        public TextView mAuthorTextView;
+
         public ViewHolder(View v, Context c){
             super(v);
-            mTextView =  (TextView)v.findViewById(R.id.article_title);
-            Typeface tf = Typeface.createFromAsset(c.getAssets(), "fonts/Oswald-Regular.otf");
-            mTextView.setTypeface(tf);
+            mTitleTextView =  (TextView)v.findViewById(R.id.article_title);
+            mDateTextView = (TextView)v.findViewById(R.id.article_date);
+            mAuthorTextView = (TextView)v.findViewById(R.id.article_author);
+
+            Typeface oswald = Typeface.createFromAsset(c.getAssets(), "fonts/Oswald-Regular.otf");
+            Typeface roboto_light = Typeface.createFromAsset(c.getAssets(), "fonts/Roboto-Light.ttf");
+
+            mTitleTextView.setTypeface(oswald);
+            mDateTextView.setTypeface(oswald);
+            mAuthorTextView.setTypeface(roboto_light);
         }
     }
 
@@ -37,7 +47,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(mDataset[position]);
+        holder.mTitleTextView.setText(mDataset[position]);
     }
 
     @Override

@@ -3,6 +3,17 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:padding="8dp">
 
+    <TextView android:id="@+id/article_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textAllCaps="true"
+        android:textSize="14sp"
+        android:lineSpacingMultiplier="1.2"
+        android:text="December 12, 2014"
+        android:textColor="#8C919B"/>
+
     <TextView android:id="@+id/article_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,6 +23,19 @@
         android:textSize="16sp"
         android:lineSpacingMultiplier="1.2"
         android:text="Lorem Ipsum Dolor Ismet Borom Titanium Sher Bolt Is Hamet Gumball June"
-        android:textColor="#000" />
+        android:textColor="#000"
+        android:layout_below="@id/article_date" />
+
+    <TextView android:id="@+id/article_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textAllCaps="true"
+        android:textSize="13sp"
+        android:lineSpacingMultiplier="1.2"
+        android:text="By Bankole Oluwafemi"
+        android:textColor="#000"
+        android:layout_below="@id/article_title"/>
 
 </RelativeLayout>

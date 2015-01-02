@@ -7,7 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 
 public class HomeCursorAdapter extends RecyclerCursorAdapter  {
@@ -26,12 +29,14 @@ public class HomeCursorAdapter extends RecyclerCursorAdapter  {
         public TextView mTitleTextView;
         public TextView mDateTextView;
         public TextView mAuthorTextView;
+        public ImageView mImageView;
 
         public ViewHolder(View v, Context c) {
             super(v);
             mTitleTextView = (TextView) v.findViewById(R.id.article_title);
             mDateTextView = (TextView) v.findViewById(R.id.article_date);
             mAuthorTextView = (TextView) v.findViewById(R.id.article_author);
+            mImageView = (ImageView) v.findViewById(R.id.article_image);
 
             Typeface oswald = Typeface.createFromAsset(c.getAssets(), "fonts/Oswald-Regular.otf");
             Typeface roboto_light = Typeface.createFromAsset(c.getAssets(), "fonts/Roboto-Light.ttf");
@@ -39,6 +44,7 @@ public class HomeCursorAdapter extends RecyclerCursorAdapter  {
             mTitleTextView.setTypeface(oswald);
             mDateTextView.setTypeface(oswald);
             mAuthorTextView.setTypeface(roboto_light);
+            Picasso.with(c).load(R.drawable.four).fit().centerCrop().into(mImageView);
         }
     }
 

@@ -3,39 +3,51 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:padding="8dp">
 
-    <TextView android:id="@+id/article_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:textAllCaps="true"
-        android:textSize="14sp"
-        android:lineSpacingMultiplier="1.2"
-        android:text="December 12, 2014"
-        android:textColor="#8C919B"/>
+    <ImageView android:id="@+id/article_image"
+        android:layout_width="104dp"
+        android:layout_height="108dp"
+        android:contentDescription="Article Image"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="16dp"
+        android:layout_centerVertical="true"/>
 
-    <TextView android:id="@+id/article_title"
-        android:layout_width="match_parent"
+    <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="3"
-        android:ellipsize="end"
-        android:textAllCaps="true"
-        android:textSize="16sp"
-        android:lineSpacingMultiplier="1.2"
-        android:text="Lorem Ipsum Dolor Ismet Borom Titanium Sher Bolt Is Hamet Gumball June"
-        android:textColor="#000"
-        android:layout_below="@id/article_date" />
+        android:layout_toRightOf="@id/article_image"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"  >
 
-    <TextView android:id="@+id/article_author"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:textAllCaps="true"
-        android:textSize="13sp"
-        android:lineSpacingMultiplier="1.2"
-        android:text="By Bankole Oluwafemi"
-        android:textColor="#000"
-        android:layout_below="@id/article_title"/>
+        <TextView android:id="@+id/article_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAllCaps="true"
+            android:textSize="12sp"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="#8C919B"/>
+
+        <TextView android:id="@+id/article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="#000"/>
+
+        <TextView android:id="@+id/article_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAllCaps="true"
+            android:textSize="12sp"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="#000"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

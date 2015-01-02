@@ -18,7 +18,7 @@ public class HomeActivity extends ActionBarActivity {
     //colors #8C919B #000000 #444444
 
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private HomeAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private String[] dataSet = {"Lorem Ipsum Dolor Predictable",
                                 "Money Makes The World Go Round",
@@ -138,30 +138,32 @@ public class HomeActivity extends ActionBarActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         Gson gson = new Gson();
         Response response = gson.fromJson(json, Response.class);
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        Article.saveAll(this, response.getArticles());
 
-        mRecyclerView.setHasFixedSize(true);
+        mAdapter = new HomeAdapter(this);
+        mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        mRecyclerView.setHasFixedSize(false);
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new HomeAdapter(this, getArticleTitles(response));
-        mRecyclerView.setAdapter(mAdapter);
+
     }
 
-    public String[] getArticleTitles(Response r){
-        String[] array = new String[r.getArticles().size()];
-        List<Article> articles = r.getArticles();
-        for (int i = 0; i < articles.size(); i++){
-                array[i] = articles.get(i).getTitle();
-        }
-
-        return array;
-    }
+//    public String[] getArticleTitles(Response r){
+//        String[] array = new String[r.getArticles().size()];
+//        List<Article> articles = r.getArticles();
+//        for (int i = 0; i < articles.size(); i++){
+//                array[i] = articles.get(i).getTitle();
+//        }
+//
+//        return array;
+//    }
 
 
     @Override

@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
-    private String[] mDataset;
+    private ArrayList<Article> mDataset;
     private Context mContext;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -33,9 +35,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
         }
     }
 
-    public HomeAdapter(Context myContext, String[] myDataset) {
-        mDataset = myDataset;
+    public HomeAdapter(Context myContext) {
         mContext = myContext;
+        mDataset = Article.all(mContext);
+    }
+
+    public void refresh(){
+        mDataset = Article.all(mContext);
     }
 
     @Override
@@ -47,11 +53,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTitleTextView.setText(mDataset[position]);
+        holder.mTitleTextView.setText(mDataset.get(position).getTitle());
+        holder.mAuthorTextView.setText(mDataset.get(position).getAuthor());
+        holder.mDateTextView.setText(mDataset.get(position).getAuthor());
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 }

@@ -1,5 +1,6 @@
 package onyekachi.me.techcabal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,16 +8,16 @@ import java.util.List;
  */
 public class Response {
 
-    List<Article> articles;
+    ArrayList<Article> articles;
     String next;
 
     public Response() { }
 
-    public List<Article> getArticles() {
+    public ArrayList<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<Article> articles) {
+    public void setArticles(ArrayList<Article> articles) {
         this.articles = articles;
     }
 

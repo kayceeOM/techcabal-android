@@ -19,6 +19,7 @@ public class HomeActivity extends ActionBarActivity {
 
     private RecyclerView mRecyclerView;
     private HomeAdapter mAdapter;
+    private HomeCursorAdapter mCAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private String[] dataSet = {"Lorem Ipsum Dolor Predictable",
                                 "Money Makes The World Go Round",
@@ -143,10 +144,11 @@ public class HomeActivity extends ActionBarActivity {
 
         Article.saveAll(this, response.getArticles());
 
-        mAdapter = new HomeAdapter(this);
-        mRecyclerView.setAdapter(mAdapter);
+        //mAdapter = new HomeAdapter(this);
+        mCAdapter = new HomeCursorAdapter(this);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        mRecyclerView.setAdapter(mCAdapter);
         mRecyclerView.setHasFixedSize(false);
 
         mLayoutManager = new LinearLayoutManager(this);

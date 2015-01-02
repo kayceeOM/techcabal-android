@@ -159,4 +159,22 @@ public class Article extends DBModel {
 
         return articles;
     }
+
+
+    public static Cursor allAsCursor(Context context)
+    {
+        open(context);
+        return  database.query(true, getTableName(), getColumns(), null, null, null, null, "DATE DESC", null);
+    }
+
+    public static String getDateString(long thenDateInMillis){
+
+        Date thenDate = new Date(thenDateInMillis);
+
+        SimpleDateFormat df = new SimpleDateFormat("MMMM dd, yyy", Locale.ENGLISH);
+        String date = df.format(thenDate);
+
+        return date;
+    }
+
 }

@@ -1,5 +1,7 @@
 package onyekachi.me.techcabal;
 
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,30 +12,15 @@ import android.view.MenuItem;
 
 import com.google.gson.Gson;
 
-import java.util.List;
-
 
 public class HomeActivity extends ActionBarActivity {
 
     //colors #8C919B #000000 #444444
 
     private RecyclerView mRecyclerView;
-    private HomeAdapter mAdapter;
     private HomeCursorAdapter mCAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private String[] dataSet = {"Lorem Ipsum Dolor Predictable",
-                                "Money Makes The World Go Round",
-                                "Odd Future In Town For Naija Rock Concert",
-                                "Onyekachi Named Time Magazine Person Of The Year",
-                                "Lolubee Charity House Holds Ultimate Homeless Party",
-                                "Crazy People Around The World Keep Blowing Themselves Up",
-                                "Lorem Ipsum Dolor Predictable",
-                                "Money Makes The World Go Round",
-                                "Odd Future In Town For Naija Rock Concert",
-                                "Onyekachi Named Time Magazine Person Of The Year",
-                                "Lolubee Charity House Holds Ultimate Homeless Party",
-                                "Crazy People Around The World Keep Blowing Themselves Up"};
-
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private LinearLayoutManager mLayoutManager;
 
     String json = "{\n" +
             "  \"articles\": [\n" +
@@ -138,13 +125,13 @@ public class HomeActivity extends ActionBarActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
 
         Gson gson = new Gson();
-        Response response = gson.fromJson(json, Response.class);
+        final Response response = gson.fromJson(json, Response.class);
 
         Article.saveAll(this, response.getArticles());
 
-        //mAdapter = new HomeAdapter(this);
         mCAdapter = new HomeCursorAdapter(this);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
@@ -154,39 +141,43 @@ public class HomeActivity extends ActionBarActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Handler h = new Handler();
+                h.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mCAdapter.changeCursor(Article.allAsCursor(HomeActivity.this));
+                        mCAdapter.notifyDataSetChanged();
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 4000);
+            }
+        });
     }
 
-//    public String[] getArticleTitles(Response r){
-//        String[] array = new String[r.getArticles().size()];
-//        List<Article> articles = r.getArticles();
-//        for (int i = 0; i < articles.size(); i++){
-//                array[i] = articles.get(i).getTitle();
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_home, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
 //        }
 //
-//        return array;
+//        return super.onOptionsItemSelected(item);
 //    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

@@ -8,17 +8,33 @@
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:id="@+id/toolbar"
         android:minHeight="?attr/actionBarSize"
-        android:elevation="4dp"
-        android:background="?attr/colorPrimary"/>
+        android:background="?attr/colorPrimary">
+
+        <ImageView android:id="@+id/toolbar_image"
+            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/toolbar_logo"
+            android:layout_gravity="center"/>
+
+    </android.support.v7.widget.Toolbar>
 
     <View android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#dddddd"/>
 
-    <android.support.v7.widget.RecyclerView android:id="@+id/recyclerView"
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        android:clipToPadding="false"/>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:clipToPadding="false"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

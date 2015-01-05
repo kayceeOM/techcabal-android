@@ -13,6 +13,7 @@ import android.view.View;
 public class ProgressView extends View {
 
     private CircularProgressDrawable mDrawable;
+   // private int mH, mW;
 
     public ProgressView(Context context) {
         this(context, null);

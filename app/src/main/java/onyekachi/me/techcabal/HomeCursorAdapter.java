@@ -35,9 +35,7 @@ public class HomeCursorAdapter extends RecyclerCursorAdapter  {
 
     public HomeCursorAdapter(Context context)
     {
-        super(Article.allAsCursor(context));
-        mContext = context;
-        mCursor = Article.allAsCursor(context);
+        this(context, Article.allAsCursor(context));
     }
 
 
@@ -70,7 +68,6 @@ public class HomeCursorAdapter extends RecyclerCursorAdapter  {
            mRelativeLayout.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                   Toast.makeText(context, "clicked " + getPosition(), Toast.LENGTH_SHORT).show();
                    Intent i = new Intent(context, ArticleActivity.class);
                    i.putExtra("position", getPosition());
                    context.startActivity(i);

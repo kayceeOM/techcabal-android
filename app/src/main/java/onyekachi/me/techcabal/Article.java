@@ -167,7 +167,15 @@ public class Article extends DBModel {
         return  database.query(true, getTableName(), getColumns(), null, null, null, null, "DATE DESC", null);
     }
 
-    public static String getDateString(long thenDateInMillis){
+    public String getDateString(){
+        Date thenDate = new Date(Long.parseLong(getDate()));
+        SimpleDateFormat df = new SimpleDateFormat("MMMM dd, yyy", Locale.ENGLISH);
+        String date = df.format(thenDate);
+
+        return date;
+    }
+
+    public static String parseLongDate(long thenDateInMillis){
 
         Date thenDate = new Date(thenDateInMillis);
 
@@ -175,6 +183,21 @@ public class Article extends DBModel {
         String date = df.format(thenDate);
 
         return date;
+    }
+
+    public static Article parseCursor(Context context, int position){
+        Cursor c = Article.allAsCursor(context);
+        c.moveToPosition(position);
+
+        Article a = new Article();
+        a.setDate(c.getString(c.getColumnIndex("DATE")));
+        a.setUrl(c.getString(c.getColumnIndex("URL")));
+        a.setAuthor(c.getString(c.getColumnIndex("AUTHOR")));
+        a.setBody(c.getString(c.getColumnIndex("BODY")));
+        a.setImage_url(c.getString(c.getColumnIndex("IMAGE_URL")));
+        a.setTitle(c.getString(c.getColumnIndex("TITLE")));
+
+        return a;
     }
 
 }

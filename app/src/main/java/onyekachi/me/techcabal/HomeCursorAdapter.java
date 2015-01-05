@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.net.URI;
+import java.net.URL;
 import java.util.Random;
 
 
@@ -68,6 +71,10 @@ public class HomeCursorAdapter extends RecyclerCursorAdapter  {
                @Override
                public void onClick(View v) {
                    Toast.makeText(context, "clicked " + getPosition(), Toast.LENGTH_SHORT).show();
+                   Intent i = new Intent(context, ArticleActivity.class);
+                   i.putExtra("position", getPosition());
+                   context.startActivity(i);
+
                }
            });
         }
@@ -78,9 +85,9 @@ public class HomeCursorAdapter extends RecyclerCursorAdapter  {
     {
         ((ViewHolder)holder).mTitleTextView.setText(cursor.getString(cursor.getColumnIndex("TITLE")));
         ((ViewHolder)holder).mAuthorTextView.setText("BY " + cursor.getString(cursor.getColumnIndex("AUTHOR")));
-        ((ViewHolder)holder).mDateTextView.setText(Article.getDateString(cursor.getLong(cursor.getColumnIndex("DATE"))));
-        int[] arr = {R.drawable.four, R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.five, R.drawable.six};
-        Picasso.with(mContext).load(arr[new Random().nextInt(6)]).fit().centerCrop().into(((ViewHolder)holder).mImageView);
+        ((ViewHolder)holder).mDateTextView.setText(Article.parseLongDate(cursor.getLong(cursor.getColumnIndex("DATE"))));
+
+        Picasso.with(mContext).load(cursor.getString(cursor.getColumnIndex("IMAGE_URL"))).fit().centerCrop().into(((ViewHolder)holder).mImageView);
     }
 
 

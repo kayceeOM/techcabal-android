@@ -2,18 +2,18 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\libs\activeandroid-3.0.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\classes-9242c0a9a1d39a6adaaf3b662ea825e892ecd98c.jar" />
+        sha1="8cdfaba830e02c56967e946078b60fc476432f36">
+        <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\activeandroid-3.0-0e339ba85c116ffa850e5f5e6305a346d4aa60b7.jar" />
     </item>
     <item
-        jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
+        jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\libs\gson-2.3.1.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\classes-ce6696eacffba8ece848f5133bddc93703db436b.jar" />
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\gson-2.3.1-97c38037b82e3a4525caa2962dfdf32183cfd5d4.jar" />
     </item>
     <item
         jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
@@ -42,6 +42,34 @@
         revision="19.1.0"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
         <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-404d1a458b56fdafe5bb171fe6c7e0464a48859a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\classes-9242c0a9a1d39a6adaaf3b662ea825e892ecd98c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\libs\picasso-2.4.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
+        <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\picasso-2.4.0-04d31071baeee50fcf27656586ea339e3b26984b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\classes-ce6696eacffba8ece848f5133bddc93703db436b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\libs\retrofit-1.8.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="a517f29ed06be2b2879524fcd94b6e9b36e2e0b5">
+        <dex dex="C:\Users\Onyekachy\AndroidStudioProjects\TechCabal\app\build\intermediates\pre-dexed\debug\retrofit-1.8.0-d1c255893f25f949b3e509afd9680acf1c4c7db6.jar" />
     </item>
 
 </items>

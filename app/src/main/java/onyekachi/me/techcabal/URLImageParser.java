@@ -36,7 +36,7 @@ public class URLImageParser implements Html.ImageGetter {
 
         // get the actual source
         ImageGetterAsyncTask asyncTask =
-                new ImageGetterAsyncTask( urlDrawable);
+                new ImageGetterAsyncTask(urlDrawable);
 
         asyncTask.execute(source);
 
@@ -46,7 +46,7 @@ public class URLImageParser implements Html.ImageGetter {
     }
 
     public class ImageGetterAsyncTask extends AsyncTask<String, Void, Drawable> {
-        URLDrawable urlDrawable;
+        URLDrawable urlDrawable ;
 
         public ImageGetterAsyncTask(URLDrawable d) {
             this.urlDrawable = d;
@@ -61,15 +61,21 @@ public class URLImageParser implements Html.ImageGetter {
         @Override
         protected void onPostExecute(Drawable result) {
             // set the correct bound according to the result from HTTP call
-            urlDrawable.setBounds(0, 0, 0 + result.getIntrinsicWidth(), 0
-                    + result.getIntrinsicHeight());
+           try {
+                urlDrawable.setBounds(0, 0, 0 + result.getIntrinsicWidth(), 0
+                        + result.getIntrinsicHeight());
 
-            // change the reference of the current drawable to the result
-            // from the HTTP call
-            urlDrawable.drawable = result;
+                // change the reference of the current drawable to the result
+                // from the HTTP call
+                urlDrawable.drawable = result;
 
-            // redraw the image by invalidating the container
-            URLImageParser.this.container.invalidate();
+                // redraw the image by invalidating the container
+               URLImageParser.this.container.setMinimumHeight((URLImageParser.this.container.getHeight()+ result.getIntrinsicHeight()));
+               URLImageParser.this.container.requestLayout();
+               URLImageParser.this.container.invalidate();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
 
         /***
@@ -85,7 +91,8 @@ public class URLImageParser implements Html.ImageGetter {
                         + drawable.getIntrinsicHeight());
                 return drawable;
             } catch (Exception e) {
-                return null;
+                e.printStackTrace();
+                return c.getResources().getDrawable(R.drawable.one);
             }
         }
 

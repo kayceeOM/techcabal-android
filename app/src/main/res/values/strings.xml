@@ -2,8 +2,91 @@
 <resources>
 
     <string name="app_name">TechCabal</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_article">ArticleActivity</string>
+    <string name="htmlPrefix" formatted="false">
+<![CDATA[<!doctype html>
+
+<head>
+    <style type=\"text/css\">
+
+        @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic);
+        @font-face{
+            font-family: \'Oswald\';
+            src: url(\'fonts/Oswald-Regular.otf\')
+        }
+
+        @font-face{
+            font-family: \'Roboto\';
+            src: url(\'fonts/Roboto-Regular.ttf\')
+        }
+
+        /* Eric Meyer\'s Reset CSS v2.0 - http://cssreset.com */
+                        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{
+            border:0; font-size:100%; font:inherit; vertical-align:baseline;
+            margin:0;padding:0
+        }
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+        body{line-height:1}
+        ol,ul{list-style:none}
+
+        blockquote:before,blockquote:after,q:before,q:after{content:none}
+        table{border-collapse:collapse;border-spacing:0}
+		/* erics ends here */
+
+        body{
+            line-height: 1.5em; background:white; margin:10%; text-align:left;color:#3b3b3b; font-family: Roboto; color: #444444;
+        }
+
+        ul, ol{
+            margin-left:2em; list-style-type:disc;
+        }
+
+        p{
+            margin-top:1em; margin-bottom:1em;
+        }
+        img, iframe, figure, video{
+            margin-top:1em; margin-bottom:0.5em; align-content:center; height:auto; width:100%;
+        }
+
+        a{
+            color: #1976D2; font-style:normal; height:auto; width:100%; text-decoration:none;
+        }
+
+        .title{
+        	font-size:1.5em; font-weight:200%; margin:0.4em 1em; line-height:1.2em; font-family: Oswald; color: #000000;
+        	text-align: center;
+        }
+
+        .date{
+        	font-size:0.8em; margin:1em; line-height:0.75em; color:#8C919B; font-family: Oswald;
+        	text-align: center; margin-bottom: 0; letter-spacing: 0.2em; line-height: 1.2em;
+        }
+
+        h1, h2, h3{font-style:normal; font-weight:150%; font-size:120% ; margin-bottom:0.2em; line-height:1.2em; font-family: Oswald}
+        h4, h5, h6{font-style:normal; font-weight:150%; font-size:110%; margin-bottom:0.2em;line-height:1.2em; font-family: Oswald}
+
+        h5+p{
+            margin-top:0.5em; margin-bottom:1em;
+        }
+
+q, blockquote{background:#f9f9f9; color:#444444;padding:1em; font-size:1em; margin:0.3em; margin-left:0;
+  display:inline-block}
+     q:first-child, blockquote:first-child{display:inline;}
+     q:last-child,  blockquote :last-child{margin-bottom:0;}
+blockquote p, q p {
+  display: inline;
+}
+    </style>
+</head>
+<body><p class="date">]]>
+    </string>
+    <string name="htmlSuffix">
+       <![CDATA[</body></html>]]>
+    </string>
+    <string name="titlePrefix">
+         <![CDATA[</p><p class="title">]]>
+    </string>
+    <string name="contentPrefix">
+         <![CDATA[</p>]]>
+    </string>
 
 </resources>
